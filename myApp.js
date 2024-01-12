@@ -27,7 +27,7 @@ console.log("Hello World");
 app.use('/', function(req, res, next) {
     console.log(req.method +  " " + req.path + " - " + req.ip);
     next();
-}, bodyParser.urlencoded({exteneded: false}));
+}, bodyParser.urlencoded({extended: false}));
 
 app.get('/now', function(req, res, next) {
     req.time = new Date().toString();
