@@ -1,4 +1,5 @@
-require('dotenv').config();
+let bodyParser = require('dotenv').config();
+require('body-parser');
 let express = require('express');
 let app = express();
 
@@ -26,7 +27,7 @@ console.log("Hello World");
 app.use('/', function(req, res, next) {
     console.log(req.method +  " " + req.path + " - " + req.ip);
     next();
-});
+}, bodyParser.urlencoded({exteneded: false}));
 
 app.get('/now', function(req, res, next) {
     req.time = new Date().toString();
